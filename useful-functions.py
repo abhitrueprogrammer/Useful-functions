@@ -5,6 +5,22 @@ def brandnewfunc(str= "abhi",find= " "):
         a = str.find("ab",start,-1)
         start=a +1
         print(a, end ="," )
+def primefactor(n, checkprime = "do not check for prime"):
+    prime= [2]
+    factors = []
+    for i in range(2,n+1):
+            if all([i%j != 0 for j in prime]):
+                prime.append(i)
+    if checkprime == "checkprime":
+        if n in prime:
+            print(n,"is prime")
+        else:
+            print("n is not prime")
+    else:
+        for a in prime:
+            if n%a ==0:
+                factors.append(a)
+        print(factors)
 
 
 def anagramfinder(name,limit=1): #accepts : name = a word/string, limit = no. of word to find.
@@ -35,3 +51,15 @@ def anagramfinder(name,limit=1): #accepts : name = a word/string, limit = no. of
                 no  = no +1
         #displaying all the words that are found.
         print(correct_words)
+def frequency_unique_duplicate(lst):                  #displays the frequency of elements in list alongwith the unique elements amd the duplicate ones
+    unique = []
+    duplicate= []
+    for i in lst:
+        frequency = lst.count(i)
+        if frequency == 1:
+            print(i,"'s frequency ",frequency,sep="")
+            unique.append(i)
+        elif duplicate.count(i) ==0 and i not in unique :
+            duplicate.append(i)
+            print(i,"'s frequency",frequency)
+    print("unique ele",unique,"duplicate ele",duplicate)
